@@ -4,13 +4,14 @@ rpm -ihv http://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
 
 yum -y install puppet-agent puppetserver
 
-echo "192.168.32.5  foreman.vagrant  foreman" >> /etc/hosts
+echo "192.168.32.5  foreman.vagrant  foreman puppet" >> /etc/hosts
 
 # Bootstrap the puppet module configuration
 # Source the profile to get the path
 . /etc/profile.d/puppet-agent.sh
 puppet module install puppet/r10k
 puppet module install puppet/hiera
+puppet module install stahnma/epel
 
 puppet apply /vagrant/bootstrap.pp
 
