@@ -27,6 +27,6 @@ Vagrant.configure("2") do |config|
     foreman.vm.network :private_network, ip: '192.168.32.5'
 
     foreman.vm.provision :shell, :path => 'scripts/common.sh'
-    foreman.vm.provision :shell, :path => 'scripts/puppet_setup.sh'
+    foreman.vm.provision :shell, :path => 'scripts/foreman_setup.sh'
   end
 end
