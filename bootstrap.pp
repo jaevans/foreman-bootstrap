@@ -1,6 +1,6 @@
 node 'default' {
   class { 'r10k':
-    remote => 'http://gogs.universe.lan/milamber/control.git',
+    remote => 'https://github.com/jaevans/foreman-bootstrap.git'
   }
 
   class {'hiera':
