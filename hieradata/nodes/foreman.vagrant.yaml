@@ -1,0 +1,17 @@
+---
+classes:
+    - r10k
+    - hiera
+    - epel
+    - foreman
+r10k::remote: 'https://github.com/jaevans/foreman-bootstrap.git'
+foreman::passenger: true
+foreman::selinux: true
+foreman::repo: '1.14'
+foreman::configure_epel_repo: false
+apache::mod::passenger::manage_repo: false
+apache::mod::passenger::passenger_max_pool_size: 12
+apache::mod::passenger::passenger_max_request_queue_size: 250
+epel::epel_exclude:
+    - 'passenger*,mod_passenger'
+
