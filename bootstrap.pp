@@ -1,6 +1,6 @@
 node 'default' {
   class { 'r10k':
-    remote => 'https://github.com/jaevans/foreman-bootstrap.git'
+    remote => 'CONTROL_REPO'
   }
 
   class {'hiera':
@@ -9,6 +9,6 @@ node 'default' {
 
   # Configure epel, excluding passenger bits. They conflict with Foreman's ruby and setup
   class {'epel':
-    epel_exclude => [ 'passenger*', 'mod_passenger*' ],
+    epel_exclude =>  'passenger*,mod_passenger*',
   }
 }

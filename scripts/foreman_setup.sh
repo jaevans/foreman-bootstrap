@@ -13,6 +13,8 @@ puppet module install puppet/r10k
 puppet module install puppet/hiera
 puppet module install stahnma/epel
 
+sed -i "s,CONTROL_REPO,$1," /vagrant/bootstrap.pp
+
 puppet apply /vagrant/bootstrap.pp
 
 # Deploy the control repo with the newly installed r10k
@@ -24,7 +26,6 @@ echo '*.vagrant' > /etc/puppetlabs/puppet/autosign.conf
 # Start the puppet master so further changes are under puppet control
 /bin/systemctl enable puppetserver
 /bin/systemctl start puppetserver
-
 
 sleep 30
 
